@@ -116,10 +116,10 @@ class NewWindow extends React.PureComponent {
 
       // If specified, copy styles from parent window's document.
       if (this.props.copyStyles) {
-        setTimeout(() => copyStyles(document, this.window.document), 0)
+        setTimeout(() => copyStyles(document, this.window.document), 50)
         this.stylesCheckerInterval = setInterval(() => {
           copyStyles(document, this.window.document)
-        }, 50)
+        }, 100)
       }
 
       if (typeof onOpen === 'function') {
