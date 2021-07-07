@@ -119,7 +119,7 @@ class NewWindow extends React.PureComponent {
         setTimeout(() => copyStyles(document, this.window.document), 0)
         this.stylesCheckerInterval = setInterval(() => {
           copyStyles(document, this.window.document)
-        }, 100)
+        }, 50)
       }
 
       if (typeof onOpen === 'function') {
@@ -159,6 +159,7 @@ class NewWindow extends React.PureComponent {
 
     // Remove checker interval.
     clearInterval(this.windowCheckerInterval)
+    clearInterval(this.stylesCheckerInterval)
 
     // Call any function bound to the `onUnload` prop.
     const { onUnload } = this.props
