@@ -119,7 +119,7 @@ class NewWindow extends React.PureComponent {
         setTimeout(() => copyStyles(document, this.window.document), 0)
         this.stylesCheckerInterval = setInterval(() => {
           copyStyles(document, this.window.document)
-        }, 50)
+        }, 150)
       }
 
       if (typeof onOpen === 'function') {
