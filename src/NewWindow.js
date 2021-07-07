@@ -37,6 +37,7 @@ class NewWindow extends React.PureComponent {
     this.container = null
     this.window = null
     this.windowCheckerInterval = null
+    this.stylesCheckerInterval = null
     this.released = false
     this.state = {
       mounted: false
@@ -116,6 +117,9 @@ class NewWindow extends React.PureComponent {
       // If specified, copy styles from parent window's document.
       if (this.props.copyStyles) {
         setTimeout(() => copyStyles(document, this.window.document), 0)
+        this.stylesCheckerInterval = setInterval(() => {
+          copyStyles(document, this.window.document)
+        }, 50)
       }
 
       if (typeof onOpen === 'function') {
